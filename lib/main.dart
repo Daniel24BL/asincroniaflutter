@@ -15,15 +15,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int rayotext = 0;
-  double rayoancho = 0;
-  int rayosegundos = 0;
+  int textorayo = 0;
+  double anchorayo = 0;
+  int segundosrayo = 0;
   int rayo = 0;
-  int maquinatext = 0;
-  double maquinaancho = 0;
-  int maquinasegundos = 0;
-  int maquina = 0;
-  int personatext = 0;
+  int textovehiculo = 0;
+  double anchovehiculo = 0;
+  int segundosvehiculo = 0;
+  int vehiculo = 0;
+  int textopersona = 0;
   double personaancho = 0;
   int personasegundos = 0;
   int persona = 0;
@@ -51,14 +51,14 @@ class _MyAppState extends State<MyApp> {
                   FloatingActionButton(
                     onPressed: () async {
                       setState(() {
-                        rayoancho = 200;
-                        rayosegundos = 1;
+                        anchorayo = 200;
+                        segundosrayo = 1;
                       });
                       rayo = await MockApi().getFerrariInteger();
                       setState(() {
-                        rayotext = rayo;
-                        rayoancho = 0;
-                        rayosegundos = 0;
+                        textorayo = rayo;
+                        anchorayo = 0;
+                        segundosrayo = 0;
                       });
                     },
                     backgroundColor: Colors.green,
@@ -68,13 +68,13 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   AnimatedContainer(
-                    width: rayoancho,
+                    width: anchorayo,
                     height: 15,
                     decoration: const BoxDecoration(color: Colors.green),
-                    duration: Duration(seconds: rayosegundos),
+                    duration: Duration(seconds: segundosrayo),
                   ),
                   Text(
-                    rayotext.toInt().toString(),
+                    textorayo.toInt().toString(),
                     style: const TextStyle(color: Colors.green, fontSize: 25.0),
                   ),
                 ],
@@ -84,14 +84,14 @@ class _MyAppState extends State<MyApp> {
                   FloatingActionButton(
                       onPressed: () async {
                         setState(() {
-                          maquinaancho = 200;
-                          maquinasegundos = 3;
+                          anchovehiculo = 200;
+                          segundosvehiculo = 3;
                         });
-                        maquina = await MockApi().getHyundaiInteger();
+                        vehiculo = await MockApi().getHyundaiInteger();
                         setState(() {
-                          maquinatext = maquina;
-                          maquinaancho = 0;
-                          maquinasegundos = 0;
+                          textovehiculo = vehiculo;
+                          anchovehiculo = 0;
+                          segundosvehiculo = 0;
                         });
                       },
                       backgroundColor: Colors.yellow,
@@ -100,13 +100,13 @@ class _MyAppState extends State<MyApp> {
                         color: Colors.black,
                       )),
                   AnimatedContainer(
-                    width: maquinaancho,
+                    width: anchovehiculo,
                     height: 15,
                     decoration: const BoxDecoration(color: Colors.yellow),
-                    duration: Duration(seconds: maquinasegundos),
+                    duration: Duration(seconds: segundosvehiculo),
                   ),
                   Text(
-                    maquinatext.toInt().toString(),
+                    textovehiculo.toInt().toString(),
                     style:
                         const TextStyle(color: Colors.yellow, fontSize: 25.0),
                   )
@@ -122,7 +122,7 @@ class _MyAppState extends State<MyApp> {
                         });
                         persona = await MockApi().getFisherPriceInteger();
                         setState(() {
-                          personatext = persona;
+                          textopersona = persona;
                           personaancho = 0;
                           personasegundos = 0;
                         });
@@ -139,7 +139,7 @@ class _MyAppState extends State<MyApp> {
                     duration: Duration(seconds: personasegundos),
                   ),
                   Text(
-                    personatext.toInt().toString(),
+                    textopersona.toInt().toString(),
                     style: const TextStyle(color: Colors.red, fontSize: 25.0),
                   )
                 ],
